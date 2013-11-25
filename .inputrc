@@ -1,0 +1,6 @@
+set match-hidden-files off
+set mark-directories on
+set show-all-if-ambiguous on
+set visible-stats on
+
+"\e\e[3~": kill-word
