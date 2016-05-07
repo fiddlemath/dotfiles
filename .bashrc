@@ -21,7 +21,7 @@ case $TERM in
     xterm*|rxvt*|Eterm|vt100|screen|tmux)
         export PROMPT_COMMAND='
 export HOSTNAME=`hostname`
-SHORTPATH="${PWD/$HOME/~}"
+SHORTPATH="${PWD/$HOME/\~}"
 export PS1="\[\033[32m\]\u @ \h \[\033[00;35m\]\t \[\033[01;34m\]${SHORTPATH}\n\\\$\[\033[00m\] "
 echo -ne "\033]0;${USER} @ ${HOSTNAME%%\.*}:${PWD##*\/}\007"
 '
@@ -32,7 +32,7 @@ echo -ne "\033]0;${USER} @ ${HOSTNAME%%\.*}:${PWD##*\/}\007"
     eterm-color)
         export PROMPT_COMMAND='
 export HOSTNAME=`hostname`
-SHORTPATH="${PWD/$HOME/~}"
+SHORTPATH="${PWD/$HOME/\~}"
 export PS1="\[\033[32m\]\u @ \h \[\033[00;35m\]\t \[\033[01;34m\]${SHORTPATH}\n\\\$\[\033[00m\] "
 '
     ;;
