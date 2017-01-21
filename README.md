@@ -1,6 +1,11 @@
 dotfiles
 ========
 
-My dotfiles -- shell, emacs, git, ssh, and so on.
+My dotfiles.
 
-(Or, at least, it will be, once I get thigns set up nicely.)
+To install:
+
+    cd ~
+    git clone https://github.com/fiddlemath/dotfiles.git
+    cd dotfiles
+    . install.sh
