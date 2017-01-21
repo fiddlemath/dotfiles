@@ -4,7 +4,6 @@
 ;; (setq inhibit-default-init t)
 
 ;; Find local site-lisp packages.
-(setq load-path (append (list "~/.emacs.d/" "~/.emacs.d/lilypond/") load-path))
 (setq exec-path (append (list "/usr/local/bin/" "/opt/local/bin/") exec-path))
 
 ;;-------------;;
