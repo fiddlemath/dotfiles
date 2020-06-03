@@ -1,0 +1,68 @@
+#!/bin/bash
+# Set lots of variables. Make sure that nothing in here produces output.
+
+function pushpath() {
+    if echo "$PATH" | egrep -qv "(:|^)$1(:|$)"
+    then
+        export PATH=$PATH:$1
+    fi
+}
+
+function append() {
+    if echo "$1" | grep -qv "(:|^)$2(:|$)"
+    then
+        export $1=${!1}:$2
+    fi
+}
+
+function prepend() {
+    if echo "$1" | grep -qv "(:|^)$2(:|$)"
+    then
+        export $1=$2:${!1}
+    fi
+}
+
+function updir() {
+    cd ${PWD%${1}*}
+}
+
+function locate() {
+    echo "On a mac, use `bold mdfind` instead"
+}
+
+EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs
+
+export BASH_VARS_HAS_RUN=yes
+export EDITOR="emacs-standalone-wait"
+export PAGER="less"
+export LESS="-R"
+
+alias emacs=emacs-standalone
+alias make="make --jobs"
+alias airport=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport
+
+# Local scripts and binaries
+pushpath ~/scripts
+pushpath ~/.local/bin/
+
+# Golang programs
+pushpath ~/go/bin/
+
+# Ruby gems in local-dir
+export GEM_HOME=$HOME/.gem
+pushpath $GEM_HOME/bin
+
+# To configure readline
+export INPUTRC=~/.inputrc
+
+# Reserve scripts
+source ~/scripts/braavos/sh-vars
+
+pushpath ~/.local/google-cloud-sdk/bin/
+
+export CLICOLOR=
+
+# Python environment
+eval "$(pyenv init -)"
+alias py=python3
+alias ipy=ipython3

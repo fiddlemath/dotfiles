@@ -1,0 +1,4 @@
+--type-set=md:ext:md,markdown
+--type-set=org:ext:org
+--type-add=org:firstlinematch:/-\*- *org *-\*-/
+--type-add=elm:ext:elm
